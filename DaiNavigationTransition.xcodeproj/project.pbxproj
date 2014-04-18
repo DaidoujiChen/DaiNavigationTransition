@@ -13,14 +13,20 @@
 		01F584861900CF64008821A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01F584841900CF64008821A1 /* InfoPlist.strings */; };
 		01F584881900CF64008821A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584871900CF64008821A1 /* main.m */; };
 		01F5848C1900CF64008821A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5848B1900CF64008821A1 /* AppDelegate.m */; };
-		01F5848F1900CF64008821A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F5848D1900CF64008821A1 /* Main.storyboard */; };
-		01F584921900CF64008821A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584911900CF64008821A1 /* ViewController.m */; };
 		01F584941900CF64008821A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F584931900CF64008821A1 /* Images.xcassets */; };
 		01F5849B1900CF64008821A1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5849A1900CF64008821A1 /* XCTest.framework */; };
 		01F5849C1900CF64008821A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847B1900CF64008821A1 /* Foundation.framework */; };
 		01F5849D1900CF64008821A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847F1900CF64008821A1 /* UIKit.framework */; };
 		01F584A51900CF64008821A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01F584A31900CF64008821A1 /* InfoPlist.strings */; };
 		01F584A71900CF64008821A1 /* DaiNavigationTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584A61900CF64008821A1 /* DaiNavigationTransitionTests.m */; };
+		01F584B31900CF79008821A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584B11900CF79008821A1 /* MainViewController.m */; };
+		01F584B41900CF79008821A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F584B21900CF79008821A1 /* MainViewController.xib */; };
+		01F584B81900CF89008821A1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584B61900CF89008821A1 /* SecondViewController.m */; };
+		01F584B91900CF89008821A1 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F584B71900CF89008821A1 /* SecondViewController.xib */; };
+		01F584C31900CFCB008821A1 /* DaiNavigationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584BC1900CFCB008821A1 /* DaiNavigationTransition.m */; };
+		01F584C41900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584BE1900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m */; };
+		01F584C51900CFCB008821A1 /* UINavigationController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584C01900CFCB008821A1 /* UINavigationController+Swizzling.m */; };
+		01F584C61900CFCB008821A1 /* UINavigationController+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F584C21900CFCB008821A1 /* UINavigationController+Transition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +50,26 @@
 		01F584891900CF64008821A1 /* DaiNavigationTransition-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DaiNavigationTransition-Prefix.pch"; sourceTree = "<group>"; };
 		01F5848A1900CF64008821A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		01F5848B1900CF64008821A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		01F5848E1900CF64008821A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		01F584901900CF64008821A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		01F584911900CF64008821A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		01F584931900CF64008821A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		01F584991900CF64008821A1 /* DaiNavigationTransitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaiNavigationTransitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F5849A1900CF64008821A1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		01F584A21900CF64008821A1 /* DaiNavigationTransitionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DaiNavigationTransitionTests-Info.plist"; sourceTree = "<group>"; };
 		01F584A41900CF64008821A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01F584A61900CF64008821A1 /* DaiNavigationTransitionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaiNavigationTransitionTests.m; sourceTree = "<group>"; };
+		01F584B01900CF79008821A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		01F584B11900CF79008821A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		01F584B21900CF79008821A1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		01F584B51900CF89008821A1 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		01F584B61900CF89008821A1 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		01F584B71900CF89008821A1 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		01F584BB1900CFCB008821A1 /* DaiNavigationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DaiNavigationTransition.h; path = DaiNavigationTransition/DaiNavigationTransition.h; sourceTree = "<group>"; };
+		01F584BC1900CFCB008821A1 /* DaiNavigationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DaiNavigationTransition.m; path = DaiNavigationTransition/DaiNavigationTransition.m; sourceTree = "<group>"; };
+		01F584BD1900CFCB008821A1 /* DaiNavigationTransition+AccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DaiNavigationTransition+AccessObject.h"; path = "DaiNavigationTransition/DaiNavigationTransition+AccessObject.h"; sourceTree = "<group>"; };
+		01F584BE1900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DaiNavigationTransition+AccessObject.m"; path = "DaiNavigationTransition/DaiNavigationTransition+AccessObject.m"; sourceTree = "<group>"; };
+		01F584BF1900CFCB008821A1 /* UINavigationController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Swizzling.h"; path = "DaiNavigationTransition/UINavigationController+Swizzling.h"; sourceTree = "<group>"; };
+		01F584C01900CFCB008821A1 /* UINavigationController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Swizzling.m"; path = "DaiNavigationTransition/UINavigationController+Swizzling.m"; sourceTree = "<group>"; };
+		01F584C11900CFCB008821A1 /* UINavigationController+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Transition.h"; path = "DaiNavigationTransition/UINavigationController+Transition.h"; sourceTree = "<group>"; };
+		01F584C21900CFCB008821A1 /* UINavigationController+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Transition.m"; path = "DaiNavigationTransition/UINavigationController+Transition.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +129,15 @@
 		01F584811900CF64008821A1 /* DaiNavigationTransition */ = {
 			isa = PBXGroup;
 			children = (
+				01F584BA1900CFC1008821A1 /* DaiNavigationTransition */,
 				01F5848A1900CF64008821A1 /* AppDelegate.h */,
 				01F5848B1900CF64008821A1 /* AppDelegate.m */,
-				01F5848D1900CF64008821A1 /* Main.storyboard */,
-				01F584901900CF64008821A1 /* ViewController.h */,
-				01F584911900CF64008821A1 /* ViewController.m */,
+				01F584B01900CF79008821A1 /* MainViewController.h */,
+				01F584B11900CF79008821A1 /* MainViewController.m */,
+				01F584B21900CF79008821A1 /* MainViewController.xib */,
+				01F584B51900CF89008821A1 /* SecondViewController.h */,
+				01F584B61900CF89008821A1 /* SecondViewController.m */,
+				01F584B71900CF89008821A1 /* SecondViewController.xib */,
 				01F584931900CF64008821A1 /* Images.xcassets */,
 				01F584821900CF64008821A1 /* Supporting Files */,
 			);
@@ -150,6 +171,21 @@
 				01F584A31900CF64008821A1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01F584BA1900CFC1008821A1 /* DaiNavigationTransition */ = {
+			isa = PBXGroup;
+			children = (
+				01F584BB1900CFCB008821A1 /* DaiNavigationTransition.h */,
+				01F584BC1900CFCB008821A1 /* DaiNavigationTransition.m */,
+				01F584BD1900CFCB008821A1 /* DaiNavigationTransition+AccessObject.h */,
+				01F584BE1900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m */,
+				01F584BF1900CFCB008821A1 /* UINavigationController+Swizzling.h */,
+				01F584C01900CFCB008821A1 /* UINavigationController+Swizzling.m */,
+				01F584C11900CFCB008821A1 /* UINavigationController+Transition.h */,
+				01F584C21900CFCB008821A1 /* UINavigationController+Transition.m */,
+			);
+			name = DaiNavigationTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +264,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F584B91900CF89008821A1 /* SecondViewController.xib in Resources */,
 				01F584941900CF64008821A1 /* Images.xcassets in Resources */,
+				01F584B41900CF79008821A1 /* MainViewController.xib in Resources */,
 				01F584861900CF64008821A1 /* InfoPlist.strings in Resources */,
-				01F5848F1900CF64008821A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F584921900CF64008821A1 /* ViewController.m in Sources */,
+				01F584B81900CF89008821A1 /* SecondViewController.m in Sources */,
+				01F584C51900CFCB008821A1 /* UINavigationController+Swizzling.m in Sources */,
 				01F5848C1900CF64008821A1 /* AppDelegate.m in Sources */,
+				01F584C41900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m in Sources */,
+				01F584B31900CF79008821A1 /* MainViewController.m in Sources */,
+				01F584C31900CFCB008821A1 /* DaiNavigationTransition.m in Sources */,
+				01F584C61900CFCB008821A1 /* UINavigationController+Transition.m in Sources */,
 				01F584881900CF64008821A1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,14 +322,6 @@
 				01F584851900CF64008821A1 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		01F5848D1900CF64008821A1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01F5848E1900CF64008821A1 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		01F584A31900CF64008821A1 /* InfoPlist.strings */ = {

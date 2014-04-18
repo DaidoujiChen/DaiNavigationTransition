@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SecondViewController.h
 //  DaiNavigationTransition
 //
 //  Created by 啟倫 陳 on 2014/4/18.
@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MainViewController.h"
+@interface SecondViewController : UIViewController
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@property (weak, nonatomic) IBOutlet UIView *redView;
 
 @end
