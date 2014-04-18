@@ -10,10 +10,11 @@
 
 #import "UINavigationController+Transition.h"
 
+#import "DefaultTableViewCell.h"
 #import "SecondViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIView *redView;
+@property (weak, nonatomic) IBOutlet UITableView *demoTableView;
 
 @end

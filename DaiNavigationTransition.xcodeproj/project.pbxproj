@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01103D601900D40B0054D0A3 /* DefaultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01103D5F1900D40B0054D0A3 /* DefaultTableViewCell.m */; };
+		01103D621900D7AF0054D0A3 /* DefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01103D611900D7AF0054D0A3 /* DefaultTableViewCell.xib */; };
 		01F5847C1900CF64008821A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847B1900CF64008821A1 /* Foundation.framework */; };
 		01F5847E1900CF64008821A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847D1900CF64008821A1 /* CoreGraphics.framework */; };
 		01F584801900CF64008821A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847F1900CF64008821A1 /* UIKit.framework */; };
@@ -40,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01103D5E1900D40B0054D0A3 /* DefaultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTableViewCell.h; sourceTree = "<group>"; };
+		01103D5F1900D40B0054D0A3 /* DefaultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTableViewCell.m; sourceTree = "<group>"; };
+		01103D611900D7AF0054D0A3 /* DefaultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultTableViewCell.xib; sourceTree = "<group>"; };
 		01F584781900CF64008821A1 /* DaiNavigationTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaiNavigationTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F5847B1900CF64008821A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01F5847D1900CF64008821A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +140,9 @@
 				01F584B01900CF79008821A1 /* MainViewController.h */,
 				01F584B11900CF79008821A1 /* MainViewController.m */,
 				01F584B21900CF79008821A1 /* MainViewController.xib */,
+				01103D5E1900D40B0054D0A3 /* DefaultTableViewCell.h */,
+				01103D5F1900D40B0054D0A3 /* DefaultTableViewCell.m */,
+				01103D611900D7AF0054D0A3 /* DefaultTableViewCell.xib */,
 				01F584B51900CF89008821A1 /* SecondViewController.h */,
 				01F584B61900CF89008821A1 /* SecondViewController.m */,
 				01F584B71900CF89008821A1 /* SecondViewController.xib */,
@@ -267,6 +275,7 @@
 				01F584B91900CF89008821A1 /* SecondViewController.xib in Resources */,
 				01F584941900CF64008821A1 /* Images.xcassets in Resources */,
 				01F584B41900CF79008821A1 /* MainViewController.xib in Resources */,
+				01103D621900D7AF0054D0A3 /* DefaultTableViewCell.xib in Resources */,
 				01F584861900CF64008821A1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +298,7 @@
 				01F584B81900CF89008821A1 /* SecondViewController.m in Sources */,
 				01F584C51900CFCB008821A1 /* UINavigationController+Swizzling.m in Sources */,
 				01F5848C1900CF64008821A1 /* AppDelegate.m in Sources */,
+				01103D601900D40B0054D0A3 /* DefaultTableViewCell.m in Sources */,
 				01F584C41900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m in Sources */,
 				01F584B31900CF79008821A1 /* MainViewController.m in Sources */,
 				01F584C31900CFCB008821A1 /* DaiNavigationTransition.m in Sources */,
@@ -490,6 +500,7 @@
 				01F584AC1900CF64008821A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01F584AD1900CF64008821A1 /* Build configuration list for PBXNativeTarget "DaiNavigationTransitionTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +509,7 @@
 				01F584AF1900CF64008821A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
