@@ -16,11 +16,54 @@
 +(void) load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        [self swizzling:@selector(init) to:@selector(swizzling_init)];
+        [self swizzling:@selector(initWithCoder:) to:@selector(swizzling_initWithCoder:)];
+        [self swizzling:@selector(initWithNavigationBarClass:toolbarClass:) to:@selector(swizzling_initWithNavigationBarClass:toolbarClass:)];
+        [self swizzling:@selector(initWithNibName:bundle:) to:@selector(swizzling_initWithNibName:bundle:)];
         [self swizzling:@selector(initWithRootViewController:) to:@selector(swizzling_initWithRootViewController:)];
     });
 }
 
 #pragma mark - method swizzling
+
+-(id) swizzling_init {
+    
+    id returnObject = [self swizzling_init];
+    if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
+        [returnObject performSelector:@selector(setDelegate:) withObject:self];
+    }
+    return returnObject;
+    
+}
+
+-(id) swizzling_initWithCoder : (NSCoder*) aDecoder {
+    
+    id returnObject = [self swizzling_initWithCoder:aDecoder];
+    if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
+        [returnObject performSelector:@selector(setDelegate:) withObject:self];
+    }
+    return returnObject;
+    
+}
+
+-(id) swizzling_initWithNavigationBarClass : (Class) navigationBarClass toolbarClass : (Class) toolbarClass {
+    
+    id returnObject = [self swizzling_initWithNavigationBarClass:navigationBarClass toolbarClass:toolbarClass];
+    if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
+        [returnObject performSelector:@selector(setDelegate:) withObject:self];
+    }
+    return returnObject;
+}
+
+-(id) swizzling_initWithNibName : (NSString*) nibNameOrNil bundle : (NSBundle*) nibBundleOrNil {
+    
+    id returnObject = [self swizzling_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
+        [returnObject performSelector:@selector(setDelegate:) withObject:self];
+    }
+    return returnObject;
+    
+}
 
 -(id) swizzling_initWithRootViewController : (UIViewController*) rootViewController {
     
