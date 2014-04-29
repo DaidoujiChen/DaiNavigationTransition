@@ -17,7 +17,7 @@ void popTransition();
 void clearStack();
 NSDictionary* topTransition();
 
-+(void) setIsPush : (BOOL) isPush;
-+(BOOL) isPush;
+void setIsPush(BOOL isPush);
+BOOL isPush();
 
 @end

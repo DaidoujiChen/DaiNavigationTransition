@@ -52,11 +52,21 @@ NSDictionary* topTransition() {
     return [transitionStack() lastObject];
 }
 
-+(void) setIsPush : (BOOL) isPush {
+void setIsPush(BOOL isPush) {
+    static id self;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self = [DaiNavigationTransition class];
+    });
     objc_setAssociatedObject(self, &ISPUSHPOINTER, [NSNumber numberWithBool:isPush], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+(BOOL) isPush {
+BOOL isPush() {
+    static id self;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self = [DaiNavigationTransition class];
+    });
     return [objc_getAssociatedObject(self, &ISPUSHPOINTER) boolValue];
 }
 

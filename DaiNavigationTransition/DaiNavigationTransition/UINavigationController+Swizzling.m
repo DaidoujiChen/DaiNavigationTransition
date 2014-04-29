@@ -82,22 +82,22 @@
 }
 
 -(void) swizzling_pushViewController : (UIViewController*) viewController animated : (BOOL) animated {
-    [DaiNavigationTransition setIsPush:YES];
+    setIsPush(YES);
     [self swizzling_pushViewController:viewController animated:animated];
 }
 
 -(UIViewController*) swizzling_popViewControllerAnimated : (BOOL) animated {
-    [DaiNavigationTransition setIsPush:NO];
+    setIsPush(NO);
     return [self swizzling_popViewControllerAnimated:animated];
 }
 
 -(NSArray*) swizzling_popToRootViewControllerAnimated : (BOOL) animated {
-    [DaiNavigationTransition setIsPush:NO];
+    setIsPush(NO);
     return [self swizzling_popToRootViewControllerAnimated:animated];
 }
 
 -(NSArray*) swizzling_popToViewController : (UIViewController*) viewController animated : (BOOL) animated {
-    [DaiNavigationTransition setIsPush:NO];
+    setIsPush(NO);
     return [self swizzling_popToViewController:viewController animated:animated];
 }
 
