@@ -14,6 +14,7 @@ typedef UIView*(^TransitionBlock)(UIViewController* viewcontroller);
 
 void pushTransition(UIViewController* fromViewController, UIViewController* toViewController, TransitionBlock fromBlock, TransitionBlock toBlock);
 void popTransition();
+void clearStack();
 NSDictionary* topTransition();
 
 @end
