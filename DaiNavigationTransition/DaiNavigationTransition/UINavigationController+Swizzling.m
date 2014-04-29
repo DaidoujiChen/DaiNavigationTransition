@@ -10,6 +10,7 @@
 
 #import <objc/runtime.h>
 #import "DaiNavigationTransition.h"
+#import "DaiNavigationTransition+AccessObject.h"
 
 @implementation UINavigationController (Swizzling)
 
@@ -21,6 +22,11 @@
         [self swizzling:@selector(initWithNavigationBarClass:toolbarClass:) to:@selector(swizzling_initWithNavigationBarClass:toolbarClass:)];
         [self swizzling:@selector(initWithNibName:bundle:) to:@selector(swizzling_initWithNibName:bundle:)];
         [self swizzling:@selector(initWithRootViewController:) to:@selector(swizzling_initWithRootViewController:)];
+        
+        [self swizzling:@selector(pushViewController:animated:) to:@selector(swizzling_pushViewController:animated:)];
+        [self swizzling:@selector(popViewControllerAnimated:) to:@selector(swizzling_popViewControllerAnimated:)];
+        [self swizzling:@selector(popToRootViewControllerAnimated:) to:@selector(swizzling_popToRootViewControllerAnimated:)];
+        [self swizzling:@selector(popToViewController:animated:) to:@selector(swizzling_popToViewController:animated:)];
     });
 }
 
@@ -73,6 +79,26 @@
     }
     return returnObject;
     
+}
+
+-(void) swizzling_pushViewController : (UIViewController*) viewController animated : (BOOL) animated {
+    [DaiNavigationTransition setIsPush:YES];
+    [self swizzling_pushViewController:viewController animated:animated];
+}
+
+-(UIViewController*) swizzling_popViewControllerAnimated : (BOOL) animated {
+    [DaiNavigationTransition setIsPush:NO];
+    return [self swizzling_popViewControllerAnimated:animated];
+}
+
+-(NSArray*) swizzling_popToRootViewControllerAnimated : (BOOL) animated {
+    [DaiNavigationTransition setIsPush:NO];
+    return [self swizzling_popToRootViewControllerAnimated:animated];
+}
+
+-(NSArray*) swizzling_popToViewController : (UIViewController*) viewController animated : (BOOL) animated {
+    [DaiNavigationTransition setIsPush:NO];
+    return [self swizzling_popToViewController:viewController animated:animated];
 }
 
 #pragma mark - UINavigationControllerDelegate

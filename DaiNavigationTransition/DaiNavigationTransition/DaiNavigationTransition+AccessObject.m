@@ -13,6 +13,7 @@
 @implementation DaiNavigationTransition (AccessObject)
 
 static const char TRANSITIONSTACKPOINTER;
+static const char ISPUSHPOINTER;
 
 NSMutableArray* transitionStack() {
     
@@ -49,6 +50,14 @@ void clearStack() {
 
 NSDictionary* topTransition() {
     return [transitionStack() lastObject];
+}
+
++(void) setIsPush : (BOOL) isPush {
+    objc_setAssociatedObject(self, &ISPUSHPOINTER, [NSNumber numberWithBool:isPush], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++(BOOL) isPush {
+    return [objc_getAssociatedObject(self, &ISPUSHPOINTER) boolValue];
 }
 
 @end

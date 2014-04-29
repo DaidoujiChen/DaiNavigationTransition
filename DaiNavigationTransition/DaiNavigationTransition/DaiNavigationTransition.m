@@ -35,10 +35,59 @@
         fromBlock = [stackDictionary objectForKey:@"fromBlock"];
         toBlock = [stackDictionary objectForKey:@"toBlock"];
         isNeedPop = NO;
-    } else {
+    } else if (fromViewController == [stackDictionary objectForKey:@"toViewController"]) {
         fromBlock = [stackDictionary objectForKey:@"toBlock"];
         toBlock = [stackDictionary objectForKey:@"fromBlock"];
         isNeedPop = YES;
+    } else {
+        
+        if ([DaiNavigationTransition isPush]) {
+            CGRect newFrame = toViewController.view.frame;
+            newFrame.origin.x += newFrame.size.width;
+            [toViewController.view setFrame:newFrame];
+            [containerView addSubview:toViewController.view];
+            
+            [containerView addSubview:fromViewController.view];
+            
+            [UIView animateWithDuration:duration animations:^{
+                
+                CGRect newFrame = toViewController.view.frame;
+                newFrame.origin.x -= newFrame.size.width;
+                [toViewController.view setFrame:newFrame];
+                
+                newFrame = fromViewController.view.frame;
+                newFrame.origin.x -= newFrame.size.width;
+                [fromViewController.view setFrame:newFrame];
+                
+            } completion:^(BOOL finished) {
+                [fromViewController.view removeFromSuperview];
+                [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+            }];
+        } else {
+            CGRect newFrame = toViewController.view.frame;
+            newFrame.origin.x -= newFrame.size.width;
+            [toViewController.view setFrame:newFrame];
+            [containerView addSubview:toViewController.view];
+            
+            [containerView addSubview:fromViewController.view];
+            
+            [UIView animateWithDuration:duration animations:^{
+                
+                CGRect newFrame = toViewController.view.frame;
+                newFrame.origin.x += newFrame.size.width;
+                [toViewController.view setFrame:newFrame];
+                
+                newFrame = fromViewController.view.frame;
+                newFrame.origin.x += newFrame.size.width;
+                [fromViewController.view setFrame:newFrame];
+                
+            } completion:^(BOOL finished) {
+                [fromViewController.view removeFromSuperview];
+                [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+            }];
+        }
+        
+        return;
     }
     
     UIView *fromView = fromBlock(fromViewController);
