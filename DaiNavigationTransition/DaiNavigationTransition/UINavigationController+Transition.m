@@ -17,4 +17,8 @@
     
 }
 
+-(void) clearTransitions {
+    clearStack();
+}
+
 @end

@@ -43,6 +43,10 @@ void popTransition() {
     [transitionStack() removeLastObject];
 }
 
+void clearStack() {
+    [transitionStack() removeAllObjects];
+}
+
 NSDictionary* topTransition() {
     return [transitionStack() lastObject];
 }
