@@ -31,11 +31,13 @@
     
     BOOL isNeedPop;
     
-    if (fromViewController == [stackDictionary objectForKey:@"fromViewController"]) {
+    if (fromViewController == [stackDictionary objectForKey:@"fromViewController"] &&
+        toViewController == [stackDictionary objectForKey:@"toViewController"]) {
         fromBlock = [stackDictionary objectForKey:@"fromBlock"];
         toBlock = [stackDictionary objectForKey:@"toBlock"];
         isNeedPop = NO;
-    } else if (fromViewController == [stackDictionary objectForKey:@"toViewController"]) {
+    } else if (fromViewController == [stackDictionary objectForKey:@"toViewController"] &&
+               toViewController == [stackDictionary objectForKey:@"fromViewController"]) {
         fromBlock = [stackDictionary objectForKey:@"toBlock"];
         toBlock = [stackDictionary objectForKey:@"fromBlock"];
         isNeedPop = YES;
