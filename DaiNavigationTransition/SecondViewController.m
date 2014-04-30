@@ -18,6 +18,14 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - ibaction
+
+-(IBAction) pushAction : (id) sender {
+    
+    [self.navigationController pushViewController:[SecondViewController new] animated:YES];
+    
+}
+
 #pragma mark - life cycle
 
 -(void) viewDidLoad {
