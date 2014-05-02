@@ -8,5 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DaiNavigationTransitionObjects.h"
+
+typedef UIView*(^TransitionBlock)(UIViewController* viewcontroller);
+
 @interface DaiNavigationTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end

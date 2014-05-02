@@ -8,16 +8,8 @@
 
 #import "DaiNavigationTransition.h"
 
-typedef UIView*(^TransitionBlock)(UIViewController* viewcontroller);
-
 @interface DaiNavigationTransition (AccessObject)
 
-void pushTransition(UIViewController* fromViewController, UIViewController* toViewController, TransitionBlock fromBlock, TransitionBlock toBlock);
-void popTransition();
-void clearStack();
-NSDictionary* topTransition();
-
-void setIsPush(BOOL isPush);
-BOOL isPush();
++(DaiNavigationTransitionObjects*) objects;
 
 @end

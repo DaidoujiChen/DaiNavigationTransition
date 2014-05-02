@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DaiNavigationTransition+AccessObject.h"
+#import "DaiNavigationTransition+TransitionStack.h"
 #import "UINavigationController+Swizzling.h"
 
 @interface UINavigationController (Transition)

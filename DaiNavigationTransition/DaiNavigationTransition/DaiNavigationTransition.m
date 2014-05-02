@@ -9,6 +9,7 @@
 #import "DaiNavigationTransition.h"
 
 #import "DaiNavigationTransition+AccessObject.h"
+#import "DaiNavigationTransition+TransitionStack.h"
 
 @implementation DaiNavigationTransition
 
@@ -45,7 +46,7 @@
         
         float deviation;
         
-        if (isPush()) deviation = 1.0f;
+        if (DaiNavigationTransition.objects.isPush) deviation = 1.0f;
         else deviation = -1.0f;
 
         CGRect newFrame = toViewController.view.frame;
