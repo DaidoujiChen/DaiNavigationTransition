@@ -4,6 +4,7 @@ DaiNavigationTransition
 Idea from <a href="http://nonomori.farbox.com/post/ios-7-jiao-hu-shi-guo-du">http://nonomori.farbox.com/post/ios-7-jiao-hu-shi-guo-du</a>, and convert this transition effect more easier to use.
 
 ![image](https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/001.gif)
+![image](https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/DaiNavigationTransition20140516.gif)
 
 DaidoujiChen
 
