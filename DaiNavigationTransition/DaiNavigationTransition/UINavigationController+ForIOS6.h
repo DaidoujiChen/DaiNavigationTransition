@@ -13,4 +13,7 @@
 -(NSDictionary*) preProcessPushAnimation;
 -(void) sufProcessPushAnimation : (NSDictionary*) preProcessDictionary;
 
+-(NSDictionary*) preProcessPopAnimation;
+-(void) sufProcessPpoAnimation : (NSDictionary*) preProcessDictionary;
+
 @end

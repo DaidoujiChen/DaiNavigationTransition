@@ -103,6 +103,21 @@
 
 -(UIViewController*) swizzling_popViewControllerAnimated : (BOOL) animated {
     DaiNavigationTransition.objects.isPush = NO;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+        return [self swizzling_popViewControllerAnimated:animated];
+    } else {
+        
+        if (animated) {
+            NSDictionary *preProcessDictionary = [self preProcessPopAnimation];
+            UIViewController *popViewController = [self swizzling_popViewControllerAnimated:NO];
+            [self sufProcessPpoAnimation:preProcessDictionary];
+            return popViewController;
+        } else {
+            return [self swizzling_popViewControllerAnimated:animated];
+        }
+        
+    }
     return [self swizzling_popViewControllerAnimated:animated];
 }
 
