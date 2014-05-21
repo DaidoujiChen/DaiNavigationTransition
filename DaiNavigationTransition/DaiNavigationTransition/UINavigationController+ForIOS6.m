@@ -57,6 +57,9 @@
         CGRect fromViewFrame = [self.view convertRect:fromView.frame fromView:fromView.superview];
         return @{@"fromViewControllerSnapshot": fromViewControllerSnapshot, @"fromViewSnapshot": fromViewSnapshot, @"fromViewFrame": [NSValue valueWithCGRect:fromViewFrame]};
         
+    } else {
+        UIImageView *fromViewControllerSnapshot = [[UIImageView alloc] initWithImage:[self.view convertToImage]];
+        return @{@"fromViewControllerSnapshot": fromViewControllerSnapshot};
     }
     
     return nil;
@@ -113,7 +116,7 @@
             
             [containerView bringSubviewToFront:fromViewSnapshot];
             
-            [UIView animateWithDuration:0.5f animations:^{
+            [UIView animateWithDuration:animationDuration animations:^{
                 fromViewControllerSnapshot.alpha = 0;
                 toViewControllerSnapshot.alpha = 1.0f;
                 fromViewSnapshot.frame = toViewFrame;
@@ -121,6 +124,41 @@
                 [containerView removeFromSuperview];
             }];
             
+        }];
+        
+    } else {
+        
+        UIImageView *fromViewControllerSnapshot = [preProcessDictionary objectForKey:@"fromViewControllerSnapshot"];
+        UIImageView *toViewControllerSnapshot = [[UIImageView alloc] initWithImage:[self.view convertToImage]];
+        
+        UIView *containerView = [[UIView alloc] initWithFrame:self.view.bounds];
+        [containerView setBackgroundColor:[UIColor clearColor]];
+        
+        float deviation;
+        if (DaiNavigationTransition.objects.isPush) deviation = 1.0f;
+        else deviation = -1.0f;
+        
+        CGRect newFrame = containerView.frame;
+        newFrame.origin.x += newFrame.size.width*deviation;
+        [toViewControllerSnapshot setFrame:newFrame];
+        [containerView addSubview:toViewControllerSnapshot];
+        
+        [containerView addSubview:fromViewControllerSnapshot];
+        
+        [self.view addSubview:containerView];
+        
+        [UIView animateWithDuration:animationDuration animations:^{
+            
+            CGRect animationFrame = toViewControllerSnapshot.frame;
+            animationFrame.origin.x -= animationFrame.size.width*deviation;
+            [toViewControllerSnapshot setFrame:animationFrame];
+            
+            animationFrame = fromViewControllerSnapshot.frame;
+            animationFrame.origin.x -= animationFrame.size.width*deviation;
+            [fromViewControllerSnapshot setFrame:animationFrame];
+            
+        } completion:^(BOOL finished) {
+            [containerView removeFromSuperview];
         }];
         
     }

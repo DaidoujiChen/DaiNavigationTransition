@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define animationDuration 0.5f
+
 @interface UINavigationController (ForIOS6)
 
 -(NSDictionary*) preProcessAnimation;
