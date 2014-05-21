@@ -90,9 +90,9 @@
     } else {
         
         if (animated) {
-            NSDictionary *preProcessDictionary = [self preProcessPushAnimation];
+            NSDictionary *preProcessDictionary = [self preProcessAnimation];
             [self swizzling_pushViewController:viewController animated:NO];
-            [self sufProcessPushAnimation:preProcessDictionary];
+            [self sufProcessAnimation:preProcessDictionary];
         } else {
             [self swizzling_pushViewController:viewController animated:animated];
         }
@@ -109,9 +109,9 @@
     } else {
         
         if (animated) {
-            NSDictionary *preProcessDictionary = [self preProcessPopAnimation];
+            NSDictionary *preProcessDictionary = [self preProcessAnimation];
             UIViewController *popViewController = [self swizzling_popViewControllerAnimated:NO];
-            [self sufProcessPpoAnimation:preProcessDictionary];
+            [self sufProcessAnimation:preProcessDictionary];
             return popViewController;
         } else {
             return [self swizzling_popViewControllerAnimated:animated];
