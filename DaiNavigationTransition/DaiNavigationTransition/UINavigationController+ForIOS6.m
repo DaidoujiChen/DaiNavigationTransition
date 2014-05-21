@@ -17,14 +17,13 @@
 -(UIImage*) convertToImage {
 
     UIImage *returnimage;
-    
-    UIGraphicsBeginImageContext(CGSizeMake(self.frame.size.width,self.frame.size.height));
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0f);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     [self.layer renderInContext:ctx];
     returnimage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     return returnimage;
+    
 }
 
 @end
