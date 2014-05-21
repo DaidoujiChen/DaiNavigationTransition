@@ -11,6 +11,8 @@
 		01103D621900D7AF0054D0A3 /* DefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01103D611900D7AF0054D0A3 /* DefaultTableViewCell.xib */; };
 		011C05DA191344B700966440 /* DaiNavigationTransitionObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C05D9191344B700966440 /* DaiNavigationTransitionObjects.m */; };
 		011C05DD1913455C00966440 /* DaiNavigationTransition+TransitionStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C05DC1913455C00966440 /* DaiNavigationTransition+TransitionStack.m */; };
+		0121D214192B4ECC0044F451 /* UINavigationController+ForIOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 0121D213192B4ECC0044F451 /* UINavigationController+ForIOS6.m */; };
+		01394ED4192C4B5E00CAF2F5 /* DispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01394ED3192C4B5E00CAF2F5 /* DispatchTimer.m */; };
 		01F5847C1900CF64008821A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847B1900CF64008821A1 /* Foundation.framework */; };
 		01F5847E1900CF64008821A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847D1900CF64008821A1 /* CoreGraphics.framework */; };
 		01F584801900CF64008821A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5847F1900CF64008821A1 /* UIKit.framework */; };
@@ -51,6 +53,10 @@
 		011C05D9191344B700966440 /* DaiNavigationTransitionObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DaiNavigationTransitionObjects.m; path = DaiNavigationTransition/DaiNavigationTransitionObjects.m; sourceTree = "<group>"; };
 		011C05DB1913455C00966440 /* DaiNavigationTransition+TransitionStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DaiNavigationTransition+TransitionStack.h"; path = "DaiNavigationTransition/DaiNavigationTransition+TransitionStack.h"; sourceTree = "<group>"; };
 		011C05DC1913455C00966440 /* DaiNavigationTransition+TransitionStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DaiNavigationTransition+TransitionStack.m"; path = "DaiNavigationTransition/DaiNavigationTransition+TransitionStack.m"; sourceTree = "<group>"; };
+		0121D212192B4ECC0044F451 /* UINavigationController+ForIOS6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+ForIOS6.h"; path = "DaiNavigationTransition/UINavigationController+ForIOS6.h"; sourceTree = "<group>"; };
+		0121D213192B4ECC0044F451 /* UINavigationController+ForIOS6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+ForIOS6.m"; path = "DaiNavigationTransition/UINavigationController+ForIOS6.m"; sourceTree = "<group>"; };
+		01394ED2192C4B5E00CAF2F5 /* DispatchTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispatchTimer.h; path = DaiNavigationTransition/DispatchTimer/DispatchTimer.h; sourceTree = "<group>"; };
+		01394ED3192C4B5E00CAF2F5 /* DispatchTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispatchTimer.m; path = DaiNavigationTransition/DispatchTimer/DispatchTimer.m; sourceTree = "<group>"; };
 		01F584781900CF64008821A1 /* DaiNavigationTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaiNavigationTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F5847B1900CF64008821A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01F5847D1900CF64008821A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01394ED1192C4AF800CAF2F5 /* DispatchTimer */ = {
+			isa = PBXGroup;
+			children = (
+				01394ED2192C4B5E00CAF2F5 /* DispatchTimer.h */,
+				01394ED3192C4B5E00CAF2F5 /* DispatchTimer.m */,
+			);
+			name = DispatchTimer;
+			sourceTree = "<group>";
+		};
 		01F5846F1900CF64008821A1 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +205,7 @@
 		01F584BA1900CFC1008821A1 /* DaiNavigationTransition */ = {
 			isa = PBXGroup;
 			children = (
+				01394ED1192C4AF800CAF2F5 /* DispatchTimer */,
 				01F584BB1900CFCB008821A1 /* DaiNavigationTransition.h */,
 				01F584BC1900CFCB008821A1 /* DaiNavigationTransition.m */,
 				011C05D8191344B700966440 /* DaiNavigationTransitionObjects.h */,
@@ -202,6 +218,8 @@
 				01F584C01900CFCB008821A1 /* UINavigationController+Swizzling.m */,
 				01F584C11900CFCB008821A1 /* UINavigationController+Transition.h */,
 				01F584C21900CFCB008821A1 /* UINavigationController+Transition.m */,
+				0121D212192B4ECC0044F451 /* UINavigationController+ForIOS6.h */,
+				0121D213192B4ECC0044F451 /* UINavigationController+ForIOS6.m */,
 			);
 			name = DaiNavigationTransition;
 			sourceTree = "<group>";
@@ -309,8 +327,10 @@
 				01F584C51900CFCB008821A1 /* UINavigationController+Swizzling.m in Sources */,
 				011C05DA191344B700966440 /* DaiNavigationTransitionObjects.m in Sources */,
 				01F5848C1900CF64008821A1 /* AppDelegate.m in Sources */,
+				0121D214192B4ECC0044F451 /* UINavigationController+ForIOS6.m in Sources */,
 				01103D601900D40B0054D0A3 /* DefaultTableViewCell.m in Sources */,
 				01F584C41900CFCB008821A1 /* DaiNavigationTransition+AccessObject.m in Sources */,
+				01394ED4192C4B5E00CAF2F5 /* DispatchTimer.m in Sources */,
 				01F584B31900CF79008821A1 /* MainViewController.m in Sources */,
 				01F584C31900CFCB008821A1 /* DaiNavigationTransition.m in Sources */,
 				01F584C61900CFCB008821A1 /* UINavigationController+Transition.m in Sources */,
@@ -435,6 +455,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DaiNavigationTransition/DaiNavigationTransition-Prefix.pch";
 				INFOPLIST_FILE = "DaiNavigationTransition/DaiNavigationTransition-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -448,6 +469,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DaiNavigationTransition/DaiNavigationTransition-Prefix.pch";
 				INFOPLIST_FILE = "DaiNavigationTransition/DaiNavigationTransition-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

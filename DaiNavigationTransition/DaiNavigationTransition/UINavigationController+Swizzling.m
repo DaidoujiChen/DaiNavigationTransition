@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import "DaiNavigationTransition.h"
 #import "DaiNavigationTransition+AccessObject.h"
+#import "UINavigationController+ForIOS6.h"
 
 @implementation UINavigationController (Swizzling)
 
@@ -83,7 +84,21 @@
 
 -(void) swizzling_pushViewController : (UIViewController*) viewController animated : (BOOL) animated {
     DaiNavigationTransition.objects.isPush = YES;
-    [self swizzling_pushViewController:viewController animated:animated];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+        [self swizzling_pushViewController:viewController animated:animated];
+    } else {
+        
+        if (animated) {
+            NSDictionary *preProcessDictionary = [self preProcessPushAnimation];
+            [self swizzling_pushViewController:viewController animated:NO];
+            [self sufProcessPushAnimation:preProcessDictionary];
+        } else {
+            [self swizzling_pushViewController:viewController animated:animated];
+        }
+        
+    }
+    
 }
 
 -(UIViewController*) swizzling_popViewControllerAnimated : (BOOL) animated {
