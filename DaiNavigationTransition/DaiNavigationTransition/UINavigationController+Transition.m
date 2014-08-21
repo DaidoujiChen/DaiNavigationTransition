@@ -10,15 +10,15 @@
 
 @implementation UINavigationController (Transition)
 
--(void) pushViewController : (UIViewController*) viewController fromView : (TransitionBlock) fromView toView : (TransitionBlock) toView {
-
-    pushTransition(self.topViewController, viewController, fromView, toView);
+- (void)pushViewController:(UIViewController *)viewController fromView:(TransitionBlock)fromView toView:(TransitionBlock)toView
+{
+    [DaiNavigationTransition pushTransition:self.topViewController toViewController:viewController fromBlock:fromView toBlock:toView];
     [self pushViewController:viewController animated:YES];
-    
 }
 
--(void) clearTransitions {
-    clearStack();
+- (void)clearTransitions
+{
+    [DaiNavigationTransition clearStack];
 }
 
 @end

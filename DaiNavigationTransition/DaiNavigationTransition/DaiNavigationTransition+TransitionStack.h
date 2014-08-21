@@ -10,9 +10,9 @@
 
 @interface DaiNavigationTransition (TransitionStack)
 
-void pushTransition(UIViewController* fromViewController, UIViewController* toViewController, TransitionBlock fromBlock, TransitionBlock toBlock);
-void popTransition();
-void clearStack();
-NSDictionary* topTransition();
++ (void)pushTransition:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController fromBlock:(TransitionBlock)fromBlock toBlock:(TransitionBlock)toBlock;
++ (void)popTransition;
++ (void)clearStack;
++ (NSDictionary *)topTransition;
 
 @end

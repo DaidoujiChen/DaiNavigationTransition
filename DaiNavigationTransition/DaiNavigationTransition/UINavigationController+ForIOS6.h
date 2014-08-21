@@ -12,7 +12,7 @@
 
 @interface UINavigationController (ForIOS6)
 
--(NSDictionary*) preProcessAnimation;
--(void) sufProcessAnimation : (NSDictionary*) preProcessDictionary;
+- (NSDictionary *)preProcessAnimation;
+- (void)sufProcessAnimation:(NSDictionary *)preProcessDictionary;
 
 @end

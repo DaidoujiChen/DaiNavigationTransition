@@ -12,29 +12,24 @@
 
 @implementation DaiNavigationTransition (TransitionStack)
 
-void pushTransition(UIViewController* fromViewController, UIViewController* toViewController, TransitionBlock fromBlock, TransitionBlock toBlock) {
-    
-    NSMutableDictionary *stackDictionary = [NSMutableDictionary dictionary];
-    
-    [stackDictionary setObject:fromViewController forKey:@"fromViewController"];
-    [stackDictionary setObject:toViewController forKey:@"toViewController"];
-    [stackDictionary setObject:[fromBlock copy] forKey:@"fromBlock"];
-    [stackDictionary setObject:[toBlock copy] forKey:@"toBlock"];
-    
-    [DaiNavigationTransition.objects.transitionStack addObject:stackDictionary];
-    
++ (void)pushTransition:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController fromBlock:(TransitionBlock)fromBlock toBlock:(TransitionBlock)toBlock
+{
+    [[DaiNavigationTransition objects].transitionStack addObject:@{@"fromViewController": fromViewController, @"toViewController": toViewController, @"fromBlock": [fromBlock copy], @"toBlock": [toBlock copy]}];
 }
 
-void popTransition() {
-    [DaiNavigationTransition.objects.transitionStack removeLastObject];
++ (void)popTransition
+{
+    [[DaiNavigationTransition objects].transitionStack removeLastObject];
 }
 
-void clearStack() {
-    [DaiNavigationTransition.objects.transitionStack removeAllObjects];
++ (void)clearStack
+{
+    [[DaiNavigationTransition objects].transitionStack removeAllObjects];
 }
 
-NSDictionary* topTransition() {
-    return [DaiNavigationTransition.objects.transitionStack lastObject];
++ (NSDictionary *)topTransition
+{
+    return [[DaiNavigationTransition objects].transitionStack lastObject];
 }
 
 @end

@@ -13,7 +13,7 @@
 
 @interface UINavigationController (Transition)
 
--(void) pushViewController:(UIViewController *)viewController fromView : (TransitionBlock) fromView toView : (TransitionBlock) toView;
--(void) clearTransitions;
+- (void)pushViewController:(UIViewController *)viewController fromView:(TransitionBlock)fromView toView:(TransitionBlock)toView;
+- (void)clearTransitions;
 
 @end

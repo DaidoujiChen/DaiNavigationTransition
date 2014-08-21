@@ -10,15 +10,14 @@
 
 @implementation DefaultTableViewCell
 
--(id) initWithStyle : (UITableViewCellStyle) style reuseIdentifier : (NSString*) reuseIdentifier {
-    
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-        self = [arrayOfViews objectAtIndex:0];
+        self = arrayOfViews[0];
     }
     return self;
-    
 }
 
 

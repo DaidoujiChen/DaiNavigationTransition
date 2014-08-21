@@ -15,7 +15,8 @@
 
 @implementation UINavigationController (Swizzling)
 
-+(void) load {
++ (void)load
+{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self swizzling:@selector(init) to:@selector(swizzling_init)];
@@ -33,28 +34,26 @@
 
 #pragma mark - method swizzling
 
--(id) swizzling_init {
-    
+- (id)swizzling_init
+{
     id returnObject = [self swizzling_init];
     if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
         [returnObject performSelector:@selector(setDelegate:) withObject:self];
     }
     return returnObject;
-    
 }
 
--(id) swizzling_initWithCoder : (NSCoder*) aDecoder {
-    
+- (id)swizzling_initWithCoder:(NSCoder *)aDecoder
+{
     id returnObject = [self swizzling_initWithCoder:aDecoder];
     if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
         [returnObject performSelector:@selector(setDelegate:) withObject:self];
     }
     return returnObject;
-    
 }
 
--(id) swizzling_initWithNavigationBarClass : (Class) navigationBarClass toolbarClass : (Class) toolbarClass {
-    
+- (id)swizzling_initWithNavigationBarClass:(Class)navigationBarClass toolbarClass:(Class)toolbarClass
+{
     id returnObject = [self swizzling_initWithNavigationBarClass:navigationBarClass toolbarClass:toolbarClass];
     if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
         [returnObject performSelector:@selector(setDelegate:) withObject:self];
@@ -62,29 +61,29 @@
     return returnObject;
 }
 
--(id) swizzling_initWithNibName : (NSString*) nibNameOrNil bundle : (NSBundle*) nibBundleOrNil {
-    
+- (id)swizzling_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
     id returnObject = [self swizzling_initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
         [returnObject performSelector:@selector(setDelegate:) withObject:self];
     }
     return returnObject;
-    
 }
 
--(id) swizzling_initWithRootViewController : (UIViewController*) rootViewController {
-    
+- (id)swizzling_initWithRootViewController:(UIViewController *)rootViewController
+{
     id returnObject = [self swizzling_initWithRootViewController:rootViewController];
     if ([returnObject respondsToSelector:@selector(setDelegate:)]) {
         [returnObject performSelector:@selector(setDelegate:) withObject:self];
     }
     return returnObject;
-    
 }
 
--(void) swizzling_pushViewController : (UIViewController*) viewController animated : (BOOL) animated {
-    DaiNavigationTransition.objects.isPush = YES;
+- (void)swizzling_pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [DaiNavigationTransition objects].isPush = YES;
     
+    //if ios version > 7.0, just do nothing
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         [self swizzling_pushViewController:viewController animated:animated];
     } else {
@@ -96,14 +95,14 @@
         } else {
             [self swizzling_pushViewController:viewController animated:animated];
         }
-        
     }
-    
 }
 
--(UIViewController*) swizzling_popViewControllerAnimated : (BOOL) animated {
-    DaiNavigationTransition.objects.isPush = NO;
+- (UIViewController *)swizzling_popViewControllerAnimated:(BOOL)animated
+{
+    [DaiNavigationTransition objects].isPush = NO;
     
+    //if ios version > 7.0, just do nothing
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
         return [self swizzling_popViewControllerAnimated:animated];
     } else {
@@ -116,33 +115,32 @@
         } else {
             return [self swizzling_popViewControllerAnimated:animated];
         }
-        
     }
-    return [self swizzling_popViewControllerAnimated:animated];
 }
 
--(NSArray*) swizzling_popToRootViewControllerAnimated : (BOOL) animated {
-    DaiNavigationTransition.objects.isPush = NO;
+- (NSArray *)swizzling_popToRootViewControllerAnimated:(BOOL)animated
+{
+    [DaiNavigationTransition objects].isPush = NO;
     return [self swizzling_popToRootViewControllerAnimated:animated];
 }
 
--(NSArray*) swizzling_popToViewController : (UIViewController*) viewController animated : (BOOL) animated {
-    DaiNavigationTransition.objects.isPush = NO;
+- (NSArray *)swizzling_popToViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [DaiNavigationTransition objects].isPush = NO;
     return [self swizzling_popToViewController:viewController animated:animated];
 }
 
 #pragma mark - UINavigationControllerDelegate
 
--(id<UIViewControllerAnimatedTransitioning>) navigationController : (UINavigationController*) navigationController
-                                  animationControllerForOperation : (UINavigationControllerOperation) operation
-                                               fromViewController : (UIViewController*) fromVC
-                                                 toViewController : (UIViewController*) toVC {
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController* )toVC
+{
     return [DaiNavigationTransition new];
 }
 
 #pragma mark - private method
 
-+(void) swizzling : (SEL) before to : (SEL) after {
++ (void)swizzling:(SEL)before to:(SEL)after
+{
     Class class = [self class];
     
     SEL originalSelector = before;
@@ -151,17 +149,10 @@
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
     
-    BOOL didAddMethod =
-    class_addMethod(class,
-                    originalSelector,
-                    method_getImplementation(swizzledMethod),
-                    method_getTypeEncoding(swizzledMethod));
+    BOOL didAddMethod = class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
     
     if (didAddMethod) {
-        class_replaceMethod(class,
-                            swizzledSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
+        class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     } else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }

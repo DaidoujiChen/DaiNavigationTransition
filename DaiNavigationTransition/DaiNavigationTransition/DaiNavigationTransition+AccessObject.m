@@ -12,16 +12,13 @@
 
 @implementation DaiNavigationTransition (AccessObject)
 
-static const char OBJECTSPOINTER;
-
-+(DaiNavigationTransitionObjects*) objects {
-    
++ (DaiNavigationTransitionObjects *)objects
+{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        objc_setAssociatedObject(self, &OBJECTSPOINTER, [DaiNavigationTransitionObjects new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, _cmd, [DaiNavigationTransitionObjects new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     });
-    return objc_getAssociatedObject(self, &OBJECTSPOINTER);
-    
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 @end

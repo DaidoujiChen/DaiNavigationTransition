@@ -10,14 +10,13 @@
 
 @implementation DaiNavigationTransitionObjects
 
--(id) init {
-    
+- (id)init
+{
     self = [super init];
     if (self) {
         self.transitionStack = [NSMutableArray array];
     }
     return self;
-    
 }
 
 @end

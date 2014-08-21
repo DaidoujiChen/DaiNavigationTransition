@@ -15,7 +15,6 @@
 @implementation UIView (ConvertToImage)
 
 -(UIImage*) convertToImage {
-
     UIImage *returnimage;
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0f);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -23,19 +22,18 @@
     returnimage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return returnimage;
-    
 }
 
 @end
 
 @implementation UINavigationController (ForIOS6)
 
--(NSDictionary*) preProcessAnimation {
+- (NSDictionary *)preProcessAnimation
+{
+    NSString *viewControllerKeyString = nil;
+    NSString *blockKeyString = nil;
     
-    NSString *viewControllerKeyString;
-    NSString *blockKeyString;
-    
-    if (DaiNavigationTransition.objects.isPush) {
+    if ([DaiNavigationTransition objects].isPush) {
         viewControllerKeyString = @"fromViewController";
         blockKeyString = @"fromBlock";
     } else {
@@ -43,11 +41,11 @@
         blockKeyString = @"toBlock";
     }
     
-    NSDictionary *stackDictionary = topTransition();
+    NSDictionary *stackDictionary = [DaiNavigationTransition topTransition];
     
-    if (self.topViewController == [stackDictionary objectForKey:viewControllerKeyString]) {
+    if (self.topViewController == stackDictionary[viewControllerKeyString]) {
         
-        TransitionBlock fromBlock = [stackDictionary objectForKey:blockKeyString];
+        TransitionBlock fromBlock = stackDictionary[blockKeyString];
         UIView *fromView = fromBlock(self.topViewController);
         fromView.hidden = YES;
         UIImageView *fromViewControllerSnapshot = [[UIImageView alloc] initWithImage:[self.view convertToImage]];
@@ -60,17 +58,14 @@
         UIImageView *fromViewControllerSnapshot = [[UIImageView alloc] initWithImage:[self.view convertToImage]];
         return @{@"fromViewControllerSnapshot": fromViewControllerSnapshot};
     }
-    
-    return nil;
-    
 }
 
--(void) sufProcessAnimation : (NSDictionary*) preProcessDictionary {
-    
+- (void)sufProcessAnimation:(NSDictionary *)preProcessDictionary
+{
     NSString *viewControllerKeyString;
     NSString *blockKeyString;
     
-    if (DaiNavigationTransition.objects.isPush) {
+    if ([DaiNavigationTransition objects].isPush) {
         viewControllerKeyString = @"toViewController";
         blockKeyString = @"toBlock";
     } else {
@@ -78,18 +73,18 @@
         blockKeyString = @"fromBlock";
     }
     
-    NSDictionary *stackDictionary = topTransition();
+    NSDictionary *stackDictionary = [DaiNavigationTransition topTransition];
     
-    if (self.topViewController == [stackDictionary objectForKey:viewControllerKeyString]) {
+    if (self.topViewController == stackDictionary[viewControllerKeyString]) {
         
-        UIImageView *fromViewControllerSnapshot = [preProcessDictionary objectForKey:@"fromViewControllerSnapshot"];
-        UIImageView *fromViewSnapshot = [preProcessDictionary objectForKey:@"fromViewSnapshot"];
-        CGRect fromViewFrame = [[preProcessDictionary objectForKey:@"fromViewFrame"] CGRectValue];
+        UIImageView *fromViewControllerSnapshot = preProcessDictionary[@"fromViewControllerSnapshot"];
+        UIImageView *fromViewSnapshot = preProcessDictionary[@"fromViewSnapshot"];
+        CGRect fromViewFrame = [preProcessDictionary[@"fromViewFrame"] CGRectValue];
         
-        TransitionBlock toBlock = [stackDictionary objectForKey:blockKeyString];
+        TransitionBlock toBlock = stackDictionary[blockKeyString];
         
         UIView *containerView = [[UIView alloc] initWithFrame:self.view.bounds];
-        [containerView setBackgroundColor:[UIColor clearColor]];
+        containerView.backgroundColor = [UIColor clearColor];
         
         fromViewControllerSnapshot.alpha = 1.0f;
         [containerView addSubview:fromViewControllerSnapshot];
@@ -127,21 +122,18 @@
         
     } else {
         
-        UIImageView *fromViewControllerSnapshot = [preProcessDictionary objectForKey:@"fromViewControllerSnapshot"];
+        UIImageView *fromViewControllerSnapshot = preProcessDictionary[@"fromViewControllerSnapshot"];
         UIImageView *toViewControllerSnapshot = [[UIImageView alloc] initWithImage:[self.view convertToImage]];
         
         UIView *containerView = [[UIView alloc] initWithFrame:self.view.bounds];
-        [containerView setBackgroundColor:[UIColor clearColor]];
+        containerView.backgroundColor = [UIColor clearColor];
         
-        float deviation;
-        if (DaiNavigationTransition.objects.isPush) deviation = 1.0f;
-        else deviation = -1.0f;
+        float deviation = ([DaiNavigationTransition objects].isPush)?1.0f:-1.0f;
         
         CGRect newFrame = containerView.frame;
         newFrame.origin.x += newFrame.size.width*deviation;
-        [toViewControllerSnapshot setFrame:newFrame];
+        toViewControllerSnapshot.frame = newFrame;
         [containerView addSubview:toViewControllerSnapshot];
-        
         [containerView addSubview:fromViewControllerSnapshot];
         
         [self.view addSubview:containerView];
@@ -150,36 +142,30 @@
             
             CGRect animationFrame = toViewControllerSnapshot.frame;
             animationFrame.origin.x -= animationFrame.size.width*deviation;
-            [toViewControllerSnapshot setFrame:animationFrame];
+            toViewControllerSnapshot.frame = animationFrame;
             
             animationFrame = fromViewControllerSnapshot.frame;
             animationFrame.origin.x -= animationFrame.size.width*deviation;
-            [fromViewControllerSnapshot setFrame:animationFrame];
+            fromViewControllerSnapshot.frame = animationFrame;
             
         } completion:^(BOOL finished) {
             [containerView removeFromSuperview];
         }];
-        
     }
-    
 }
 
 #pragma mark - private
 
--(void) waitingForDone : (UIViewController*) controller withBlock : (TransitionBlock) block completion : (void(^)(void)) completion {
-    
+- (void)waitingForDone:(UIViewController *)controller withBlock:(TransitionBlock)block completion:(void(^)(void))completion
+{
     static DispatchTimer *waitingTimer;
-    
     waitingTimer = [DispatchTimer scheduledOnMainThreadImmediatelyWithTimeInterval:0.05f block:^{
-        
         if (block(controller)) {
             [waitingTimer invalidate];
             waitingTimer = nil;
             completion();
         }
-        
     }];
-    
 }
 
 @end

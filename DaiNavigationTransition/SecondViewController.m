@@ -9,27 +9,15 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
-
 @end
 
 @implementation SecondViewController
 
--(void) didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - ibaction
 
--(IBAction) pushAction : (id) sender {
-    
+- (IBAction)pushAction:(id)sender
+{
     [self.navigationController pushViewController:[SecondViewController new] animated:YES];
-    
-}
-
-#pragma mark - life cycle
-
--(void) viewDidLoad {
-    [super viewDidLoad];
 }
 
 @end
